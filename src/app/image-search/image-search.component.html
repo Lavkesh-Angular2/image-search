@@ -1,30 +1,30 @@
 <!-- flex container displaying children as a column -->
 <section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="snav.toggle()" *ngIf="isMobileLayout">
-        <mat-icon>menu</mat-icon>
-      </button>
-  
-      <app-header></app-header>
-    </mat-toolbar>
-  
-    <mat-sidenav-container fxFlex>
-      <mat-sidenav #snav [mode]="isMobileLayout ? 'over' : 'side'" [fixedInViewport]="isMobileLayout" [opened]="!isMobileLayout"
-        class="filter-sidenav" fxLayout="column" fxLayoutAlign="start stretch">
-          <mat-toolbar color="primary" *ngIf="isMobileLayout">
-            <h1>Image Filter</h1>
-          </mat-toolbar>
-  
-          <app-image-search-filter></app-image-search-filter>
-      </mat-sidenav>
-  
-      <mat-sidenav-content>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="isMobileLayout">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <app-header></app-header>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav #snav [mode]="isMobileLayout ? 'over' : 'side'" [fixedInViewport]="isMobileLayout" [opened]="!isMobileLayout"
+      class="filter-sidenav" fxLayout="column" fxLayoutAlign="start stretch" [fixedTopGap]="56">
+      <app-image-search-filter></app-image-search-filter>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxLayout="column" fxLayoutAlign="start stretch">
+      <div fxFlex>
         <app-image-search-result></app-image-search-result>
-      </mat-sidenav-content>
-  
-    </mat-sidenav-container>
-  
-    <mat-toolbar>
-      <app-footer></app-footer>
-    </mat-toolbar>
-  </section>
+      </div>
+
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <app-footer></app-footer>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</section>

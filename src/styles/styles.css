@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+* {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+
+.nopadding {
+    padding: 0px !important;
+}
+
+.app {
+    height: 100vh;
+}
+
+.selection-value-additional {
+    opacity: 0.75;
+    font-size: 0.75em;
+}

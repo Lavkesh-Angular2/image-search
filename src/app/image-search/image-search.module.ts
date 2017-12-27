@@ -6,6 +6,8 @@ import { ImageSearchComponent } from './image-search.component';
 import { ImageSearchFilterComponent } from './image-search-filter/image-search-filter.component';
 import { ImageSearchResultComponent } from 'app/image-search/image-search-result/image-search-result.component';
 import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
+import { ImageSearchService } from './service/image-search.service';
+import { ImageDetailsComponent } from './image-details/image-details.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,11 @@ import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
     ImageSearchComponent,
     ImageSearchFilterComponent,
     ImageSearchResultComponent,
-    ImageViewerComponent
+    ImageViewerComponent,
+    ImageDetailsComponent
+  ],
+  providers: [
+    ImageSearchService
   ]
 })
 export class ImageSearchModule { }

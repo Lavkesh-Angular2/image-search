@@ -14,8 +14,11 @@ import {
   MatSliderModule,
   MatListModule,
   MatFormFieldModule,
-  MatCardModule
+  MatCardModule,
+  MatInputModule,
+  MatSelectModule
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,6 +27,8 @@ import {
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -37,6 +42,8 @@ import {
     MatListModule,
     MatFormFieldModule,
     MatCardModule,
+    MatInputModule,
+    MatSelectModule,
     FlexLayoutModule
   ]
 })
