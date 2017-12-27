@@ -20,20 +20,20 @@ export class ImageSearchResultComponent implements OnInit {
 
   ngOnInit() {
     this.searchResults = [
-      { name: 'Test 1', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 2', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 3', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 4', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 5', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 6', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 7', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 8', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 9', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 10', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 11', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 12', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-      { name: 'Test 13', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg' }];
-
+      { name: 'Test 1', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 2', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 3', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 4', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 5', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 6', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 7', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 8', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 9', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 10', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 11', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 12', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+      { name: 'Test 13', thumbnail: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    ];
     this.imageFilters = this.imageSearchService.getImageFilters();
 
     const imageFilterChangeEvent = this.imageSearchService.imageFilterChangeEvent;

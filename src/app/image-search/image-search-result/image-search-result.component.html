@@ -33,20 +33,5 @@
     </div>
   </div>
 
-  <!-- Search Result Display Area -->
-  <ng-container *ngIf="displaySearchResultTileView()">
-    <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results"
-      fxLayoutWrap>
-      <mat-card fxFlex *ngFor="let result of searchResults" class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs"
-        [ngStyle]="{'background-image': 'url(' + result.thumbnail + ')'}" (click)="displayImageDetailSection(result)">
-        <ng-content></ng-content>
-      </mat-card>
-    </div>
-  </ng-container>
-
-  <ng-container *ngIf="displaySearchResultDetailsView()">
-    <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" class="search-result-detail-view" fxLayoutWrap>
-      <app-image-details fxFlex></app-image-details>
-    </div>
-  </ng-container>
+  <app-image-viewer></app-image-viewer>
 </div>
