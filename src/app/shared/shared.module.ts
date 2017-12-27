@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExternalComponentDependencyModule } from '../external-modules/external-modules.module';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from 'app/shared/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
+import { Constant } from './utilities/constant.class';
 
 @NgModule({
   imports: [
@@ -16,6 +17,8 @@ import { FooterComponent } from 'app/shared/footer/footer.component';
     ExternalComponentDependencyModule,
     HeaderComponent,
     FooterComponent
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }

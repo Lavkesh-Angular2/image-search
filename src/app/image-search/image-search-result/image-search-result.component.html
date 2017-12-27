@@ -3,25 +3,30 @@
   <!-- Search Input Box -->
   <div fxFlex="10" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center" class="search-input-div">
     <div fxFlex="90" [fxFlex.gt-md]="60">
-      <input type="text" #searchInput (keyup.enter)="addSearchInput(searchInput.value); searchInput.value='';" />
-    </div>
-
-    <div>
-      <button mat-icon-button>
-        <i class="fa fa-search fa-fw" aria-hidden="true"></i>
-      </button>
+      <form>
+        <mat-form-field fxFlex [floatLabel]="'never'">
+          <mat-label>Enter search string</mat-label>
+          <input name="searchInput" matInput [(ngModel)]="searchInput" />
+          <i matSuffix class="fa fa-search" aria-hidden="true"></i>
+        </mat-form-field>
+      </form>
     </div>
   </div>
 
   <!-- Search String Display -->
-  <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center" *ngIf="hasSearchInput()" fxLayoutWrap>
-    <div *ngFor="let searchInpStr of searchInputs" class="search-input" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" *ngIf="hasSearchInput()" fxLayoutWrap>
+    <div *ngFor="let filter of imageFilters" class="search-input mat-elevation-z2" fxLayout="row" fxLayoutAlign="start center"
+      fxLayoutGap="5px">
+      <div class="search-input-type">
+        <span>{{ filter?.type?.code | uppercase }}</span>
+      </div>
+
       <div class="search-input-value">
-        <span>{{searchInpStr}}</span>
+        <span>{{filter?.value}}</span>
       </div>
 
       <div class="search-input-close">
-        <a href="javascript:void(0)" (click)="removeSearchInput(searchInpStr)">
+        <a href="javascript:void(0)" (click)="removeSearchInput(filter)">
           <i class="fa fa-times fa-fw" aria-hidden="true"></i>
         </a>
       </div>
@@ -29,10 +34,19 @@
   </div>
 
   <!-- Search Result Display Area -->
-  <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results" fxLayoutWrap>
-    <mat-card *ngFor="let result of searchResults" class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs" 
-          [ngStyle]="{'background-image': 'url(' + result.thumbnail + ')'}">
-      <ng-content></ng-content>
-    </mat-card>
-  </div>
+  <ng-container *ngIf="displaySearchResultTileView()">
+    <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results"
+      fxLayoutWrap>
+      <mat-card fxFlex *ngFor="let result of searchResults" class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs"
+        [ngStyle]="{'background-image': 'url(' + result.thumbnail + ')'}" (click)="displayImageDetailSection(result)">
+        <ng-content></ng-content>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="displaySearchResultDetailsView()">
+    <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" class="search-result-detail-view" fxLayoutWrap>
+      <app-image-details fxFlex></app-image-details>
+    </div>
+  </ng-container>
 </div>

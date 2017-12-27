@@ -5,6 +5,12 @@
 .filter-title {
     border-bottom: 1px solid lightgray;
     padding-bottom: 5px;
+    font-size: 16px;
+}
+
+.filter-label {
+    font-weight: lighter;
+    color: royalblue;
 }
 
 .filter-component input {

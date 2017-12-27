@@ -3,113 +3,150 @@
         <span>Filters</span>
     </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="isbn-filter-section">
-        <div class="filter-label">
-            <span>ISBN</span>
-        </div>
-
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
-            <div fxFlex="80">
-                <input type="text" />
+    <form>
+        <div fxLayout="column" fxLayoutGap="5px" class="isbn-filter-section">
+            <div class="filter-label">
+                <span>ISBN</span>
             </div>
 
-            <div>
-                <button mat-icon-button>
-                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                </button>
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <input name="isbnFilter" matInput [(ngModel)]="isbnFilter" />
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-icon-button (click)="addFilterInSearch(isbnFilter, FILTER_CONSTANT.ISBN); isbnFilter= '';" [disabled]="isEmptyInput(isbnFilter)">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="title-filter-section">
-        <div class="filter-label">
-            <span>Title</span>
-        </div>
-
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
-            <div fxFlex="80">
-                <input type="text" />
+        <div fxLayout="column" fxLayoutGap="5px" class="title-filter-section">
+            <div class="filter-label">
+                <span>Title</span>
             </div>
 
-            <div>
-                <button mat-icon-button>
-                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                </button>
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <input name="titleFilter" matInput [(ngModel)]="titleFilter" />
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-icon-button (click)="addFilterInSearch(titleFilter, FILTER_CONSTANT.TITLE); titleFilter= '';" [disabled]="isEmptyInput(titleFilter)">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="author-filter-section">
-        <div class="filter-label">
-            <span>Author</span>
-        </div>
-
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
-            <div fxFlex="80">
-                <input type="text" />
+        <div fxLayout="column" fxLayoutGap="5px" class="author-filter-section">
+            <div class="filter-label">
+                <span>Author</span>
             </div>
 
-            <div>
-                <button mat-icon-button>
-                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                </button>
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <input name="authorFilter" matInput [(ngModel)]="authorFilter" />
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-icon-button (click)="addFilterInSearch(authorFilter, FILTER_CONSTANT.AUTHOR); authorFilter= '';" [disabled]="isEmptyInput(authorFilter)">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="imageType-filter-section">
-        <div class="filter-label">
-            <span>Image Type</span>
-        </div>
-
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
-            <div fxFlex="80">
-                <input type="text" />
+        <div fxLayout="column" fxLayoutGap="5px" class="imageType-filter-section">
+            <div class="filter-label">
+                <span>Image Type</span>
             </div>
 
-            <div>
-                <button mat-icon-button>
-                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                </button>
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <input name="imageTypeFilter" matInput [(ngModel)]="imageTypeFilter" />
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-icon-button (click)="addFilterInSearch(imageTypeFilter, FILTER_CONSTANT.IMAGE_TYPE); imageTypeFilter= '';" [disabled]="isEmptyInput(imageTypeFilter)">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="publicationType-filter-section">
-        <div class="filter-label">
-            <span>Publication Type</span>
-        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="publicationType-filter-section">
+            <div class="filter-label">
+                <span>Publication Type</span>
+            </div>
 
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
-            <div fxFlex="80">
-                <input type="text" />
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <mat-select [(value)]="publicationTypeFilter" (change)="onPublicationTypeFilterChange($event)" multiple>
+                            <mat-select-trigger>
+                                {{publicationTypeFilter.length ? publicationTypeFilter[0].name : ''}}
+                                <span *ngIf="publicationTypeFilter.length > 1" class="selection-value-additional">
+                                    (+{{publicationTypeFilter.length - 1}} others)
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option *ngFor="let pubType of publicationTypes" [value]="pubType">{{pubType.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="copyrightYear-filter-section">
-        <div class="filter-label">
-            <span>Copyright Year</span>
-        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="copyrightYear-filter-section">
+            <div class="filter-label">
+                <span>Copyright Year</span>
+            </div>
 
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
-            <div fxFlex="80">
-                <input type="text" />
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <mat-select [(value)]="copyrightFilter">
+                            <mat-option value="">-- Select --</mat-option>
+                            <mat-option value="2010">2010</mat-option>
+                            <mat-option value="2011">2011</mat-option>
+                            <mat-option value="2012">2012</mat-option>
+                            <mat-option value="2013">2013</mat-option>
+                            <mat-option value="2014">2014</mat-option>
+                            <mat-option value="2015">2015</mat-option>
+                            <mat-option value="2016">2016</mat-option>
+                            <mat-option value="2017">2017</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div fxLayout="column" fxLayoutGap="5px" class="copyrightYear-filter-section pb-4">
-        <div class="filter-label">
-            <span>Elsevier Image (Y/N)</span>
-        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="copyrightYear-filter-section pb-2">
+            <div class="filter-label">
+                <span>Elsevier Image (Y/N)</span>
+            </div>
 
-        <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
-            <div fxFlex="60">
-                <input type="text" />
+            <div class="filter-component" fxLayout="row" fxLayoutGap="5px">
+                <div fxFlex="80">
+                    <mat-form-field fxFlex [floatLabel]="'never'">
+                        <mat-select [(value)]="imageFilter">
+                            <mat-option value="N">Don't care</mat-option>
+                            <mat-option value="Y">Include</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <div fxFlex class="filter-title font-weight-bold">
         <span>Archieve image request</span>

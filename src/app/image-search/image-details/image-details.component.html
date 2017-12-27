@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex="15" fxLayout="row">
+    <div>
+      <button mat-raised-button color="accent" (click)="goToImageSearchTileView()">
+        <i matSuffix class="fa fa-hand-o-left" aria-hidden="true"></i>
+        <span>Click here for image search tile view</span>
+      </button>
+    </div>
+  </div>
+
+  <div fxFlex="85" fxLayout="row" fxLayoutAlign="center center">
+
+    <div fxFlex="50">
+
+      <span>Image Section => {{selectedImage?.name}}</span>
+
+    </div>
+
+    <div fxFlex="50">
+
+      <span>Details Section => {{selectedImage?.name}}</span>
+
+    </div>
+
+  </div>
+
+</div>
