@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px" class="p-3" fxLayoutWrap>
+  <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results" fxLayoutWrap>
+    <mat-card *ngFor="let image of searchResults; let i = index" (click)="openModal();currentSlide(i)"  class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs"
+              [ngStyle]="{'background-image': 'url(' + image.thumbnail + ')'}">
+      <ng-content></ng-content>
+    </mat-card>
+  </div>
+</div>
+
+<div [ngStyle]="{'display': toggleModal}" id="myModal" class="modal">
+  <span class="close cursor" (click)="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div *ngFor="let image of searchResults; let i =index" class="mySlides" [ngStyle]="{'display': image.isSelected}">
+      <div class="numbertext">{{i+1}} / {{searchResults.length}}</div>
+      <img src="{{image.thumbnail}}" style="width:50%; float: left">
+      <div style="margin: 16px">
+        <h4>Desc: <span>{{image.desc}}</span></h4>
+        <h4>Name: <span>{{image.name}}</span></h4>
+        <button class="bg-primary">show details</button>
+      </div>
+
+    </div>
+
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+  </div>
+</div>

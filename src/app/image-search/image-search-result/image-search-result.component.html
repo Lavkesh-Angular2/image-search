@@ -29,10 +29,11 @@
   </div>
 
   <!-- Search Result Display Area -->
-  <div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results" fxLayoutWrap>
-    <mat-card *ngFor="let result of searchResults" class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs" 
+  <!--<div fxFlex="80" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" fxLayoutAlign.gt-md="start center" class="search-results" fxLayoutWrap>
+    <mat-card *ngFor="let result of searchResults" class="search-result mat-elevation-z3" [ngClass.xs]="search-result-xs"
           [ngStyle]="{'background-image': 'url(' + result.thumbnail + ')'}">
       <ng-content></ng-content>
     </mat-card>
-  </div>
+  </div>-->
+  <app-image-viewer></app-image-viewer>
 </div>
